@@ -47,7 +47,7 @@ public class HabitTracker extends AppCompatActivity {
         long insertReturn2 = db.insert(HabitEntry.TABLE_NAME, null, habitContent2);
     }
 
-    public void readHabitData() {
+    public Cursor readHabitData() {
         // create a new habitDbHelper to communicate with the database
         HabitDbHelper dbHelper = new HabitDbHelper(this);
 
@@ -63,7 +63,7 @@ public class HabitTracker extends AppCompatActivity {
                 HabitEntry.COLUMN_FEELING
         };
 
-        // Create Cursor Object
-        Cursor cursor = db.query(HabitEntry.TABLE_NAME, projection, null, null, null, null, null);
+        // return Cursor Object
+        return db.query(HabitEntry.TABLE_NAME, projection, null, null, null, null, null);
     }
 }
